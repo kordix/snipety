@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="prism.css">
+    <style>
+    #editor {
+    position: relative;
+}
+#editor-content {
+    position: relative;
+    top: 1em;
+    left: 1em;
+    right: 1em;
+    bottom: 1em;
+    opacity: 0.3;
+    width: calc(100% - 2em);
+    height: calc(100% - 2em);
+    -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <div id="dupa">
+    <pre id="editor">
+        <code contenteditable class="language-javascript" id="editor-code"></code>
+    </pre>
+    </div>
+    </div>
+    <br><br><br>
+    <div>
+    <textarea id="editor-content">fsadfdasfdfda</textarea>
+    </div>
+
+    <pre id="pre"  style="height:300px;font-size:18px"><code contenteditable id="code"  class='language-javascript' ></code></pre>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var editorCode = document.getElementById('editor-code');
+        // var editorContent = document.getElementById('editor-content');
+        // var selector = document.getElementById('selector');
+        // editorCode.innerHTML = Prism.highlight(editorContent.value, Prism.languages.javascript);
+
+
+
+        $('#dupa').on('click', function() {
+            var zbigniew = $('#editor-code').text();
+            console.log(zbigniew);
+            editorCode.innerHTML = Prism.highlight(zbigniew, Prism.languages.javascript);
+        });
+
+
+    });
+
+    </script>
+    <script src="prism.js"></script>
+    <script>
+
+
+    </script>
+
+
+</body>
+</html>

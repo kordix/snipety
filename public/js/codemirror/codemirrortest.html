@@ -1,0 +1,23 @@
+<!-- Create a simple CodeMirror instance -->
+
+<html>
+    <body>
+        <textarea name="" id="mojetextarea" cols="30" rows="10"></textarea>
+    </body>
+</html>
+
+<script src="lib/codemirror.js"></script>
+<link rel="stylesheet" href="lib/codemirror.css">
+<script src="mode/javascript/javascript.js"></script>
+<script>
+var myCodeMirror = CodeMirror(document.body, {
+  value: "function myScript(){return 100;}\n",
+  mode:  "javascript"
+});
+
+var myTextarea = document.getElementById('mojetextarea')
+  var editor = CodeMirror.fromTextArea(myTextarea, {
+    lineNumbers: true
+  });
+</script>
+</script>
