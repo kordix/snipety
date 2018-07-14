@@ -25,7 +25,7 @@ Route::post('/questions/store', 'questionController@store')->name('store');
 Route::post('/storecategory', 'questionController@storecategory')->name('storecategory');
 
 Route::get('/questions/list', 'questionController@list')->name('list');
-Route::get('/questions/categories', 'questionController@indexcategories')->name('indexcategories');
+Route::get('/questions/categories', 'questionController@indexcategories')->name('categories');
 
 Route::get('/questions/{channel}/list', 'questionController@listchannel')->name('listchannel');
 
