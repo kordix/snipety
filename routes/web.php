@@ -33,6 +33,6 @@ Route::patch('/updatecounter/{id}', 'questionController@updatecounter')->name('u
 Route::delete('/delete/{question}', function (Question $question) {
     $question->delete();
     return route('home');
-});
+})->name('delete');
 Route::patch('/update/{id}', 'questionController@update')->name('update');
 Route::get('/questions/{channel}/start', 'questionController@startchannel')->name('startchannel');
