@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <form action="/questions/store" method="post">
+                <form action="{{route('store')}}" method="post">
                     {{csrf_field()}}
                     <label for="pytanie">Pytanie</label>
                     <textarea  class="form-control" name="question" style="font-size:20px;height:100px"></textarea>
