@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <form action="/update/{{$question->id}}" method="post">
+                <form action="{{route('update',$question->id)}}" method="post">
                     {{csrf_field()}}
                     {{method_field('PATCH')}}
                     <label for="pytanie">Pytanie    (id {{$question->id}})</label>
