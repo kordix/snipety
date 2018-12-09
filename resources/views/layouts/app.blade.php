@@ -8,6 +8,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="{{asset('css/prism.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -82,6 +84,19 @@
         </nav>
 
         @yield('content')
+
+    
+            <br><br>
+            <footer id="mojfooter">
+            <div class="footer-copyright text-center">© 2018 Copyright:
+            <a href="{{route('start')}}">Kordix technologies &reg;</a>
+            </div>
+            </footer>
+
+        {{-- <nav class="navbar navbar-default navbar-static-bottom" style="height:20px">
+        </nav> --}}
+
+
     </div>
 
     <!-- Scripts -->
@@ -135,8 +150,6 @@
 
 
     @yield('scripts')
-
-
 
 </body>
 </html>

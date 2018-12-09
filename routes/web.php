@@ -12,22 +12,22 @@ use App\Question;
 |
 */
 
-Route::get('/', 'questionController@start')->name('start');
+Route::get('/', 'IndexController@start')->name('start');
 
 Auth::routes();
 
-Route::get('/questions/show/{id}', 'questionController@show')->name('show');
+Route::get('/questions/show/{id}', 'IndexController@show')->name('show');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/questions/show/{id}', 'questionController@show')->name('show');
+Route::post('/questions/show/{id}', 'IndexController@show')->name('show');
 Route::get('/questions/create', 'questionController@create')->name('create');
 Route::get('/edit/{id}', 'questionController@edit')->name('edit');
 Route::post('/questions/store', 'questionController@store')->name('store');
 Route::post('/storecategory', 'questionController@storecategory')->name('storecategory');
 
 Route::get('/questions/list', 'questionController@list')->name('list');
-Route::get('/questions/categories', 'questionController@indexcategories')->name('categories');
+Route::get('/questions/categories', 'IndexController@indexcategories')->name('categories');
 
-Route::get('/questions/{channel}/list', 'questionController@listchannel')->name('listchannel');
+Route::get('/questions/{channel}/list', 'IndexController@listchannel')->name('listchannel');
 
 Route::patch('/updatecounter/{id}', 'questionController@updatecounter')->name('updatecounter');
 Route::delete('/delete/{question}', function (Question $question) {

@@ -1,0 +1,20 @@
+footer, body, div{
+ margin:0px;
+    padding:0px;
+}
+
+#app{
+    margin:0;
+    padding: 0;
+}
+
+#mojfooter{
+    position:fixed;
+   bottom: 0;
+   width: 100%;
+   background-color: #333;
+   color: white;
+   text-align: center;
+   margin:0px;
+    padding:0px;
+}

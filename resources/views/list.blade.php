@@ -15,7 +15,7 @@
 <div class="col-md-2"><a href="{{route('edit', $question->id)}}">Edytuj</a></div>
 </div>
 @endforeach
+</div>
 @endsection
 
 {{-- {{$questions}} --}}
-</div>
