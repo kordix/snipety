@@ -36,4 +36,11 @@ class IndexController extends Controller
         $next = Question::where('counter', '<', 2)->where('channel', '=', $channel->id)->min('id');
         return redirect()->route('show', ['id'=>$next])->with('autofocus', true);
     }
+
+    public function listzdania()
+    {
+        $currentlanguage = $this->currentlanguage;
+        $rows = Question::where('language', '=', $currentlanguage)->where('zdanie', '=', 1)->get();
+        return view('layouts.list', compact('rows', 'currentlanguage'));
+    }
 }
