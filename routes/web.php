@@ -25,14 +25,13 @@ Route::post('/questions/store', 'questionController@store')->name('store');
 Route::post('/storecategory', 'questionController@storecategory')->name('storecategory');
 
 Route::get('/questions/list', 'questionController@list')->name('list');
-Route::get('/questions/categories', 'IndexController@indexcategories')->name('categories');
+Route::get('/questions/categories', 'questionController@indexcategories')->name('categories');
 
 Route::get('/questions/{channel}/list', 'IndexController@listchannel')->name('listchannel');
 
 Route::patch('/updatecounter/{id}', 'questionController@updatecounter')->name('updatecounter');
-Route::delete('/delete/{question}', function (Question $question) {
-    $question->delete();
-    return route('home');
-})->name('delete');
+Route::patch('/updatecounterset/{id}', 'questionController@updatecounterset')->name('updatecounterset');
+
+Route::delete('/delete/{question}', 'questionController@delete')->name('delete');
 Route::patch('/update/{id}', 'questionController@update')->name('update');
 Route::get('/questions/{channel}/start', 'questionController@startchannel')->name('startchannel');

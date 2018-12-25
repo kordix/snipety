@@ -2,6 +2,11 @@
 @section('content')
 
 <div class="container">
+    <div class="col-md-12">
+        <div class="col-md-1">Id: {{$question->id}}</div>
+        <div class="col-md-2">Kategoria: {{ App\Channel::find($question->channel)['channelname']}}</div>
+        <div class="col-md-2">Counter: {{$question['counter']}}</div>
+    </div>
     <div class="col-md-12" >
     <div class="panel panel-default col-md-5" style="margin-right:5px;height:150px">
         <div class="panel-body" style="font-size:18px">{!! nl2br($question->question)!!}</div>
@@ -30,11 +35,12 @@
 <div class="container">
 <div class="col-md-5" style="display:flex; justify-content:space-around">
     <div class="form-group">
-        {{ csrf_field() }}
+        <a href="{{route('show', $prev)}}"><button type="submit" class="btn btn-info">Prev</button></a>
+    </div>
+    <div class="form-group">
         {{-- <a href="/questions/show/{{$question->id+1}}"><button type="submit" class="btn btn-success">Next</button></a> --}}
+
         <a href="{{route('show', $next)}}"><button type="submit" class="btn btn-success">Next</button></a>
-
-
     </div>
 
     <form action="{{route('delete', $question->id)}}" method="post">

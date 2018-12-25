@@ -53,6 +53,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href=""><form method="POST" action="{{route('updatecounterset',1)}}" >{{csrf_field()}}{{method_field('PATCH')}}<button type="submit" style="margin-right:5px">Ustaw counter:</button><input value="{{App\Setting::find(1)['counternum']}}" style="width:50px" type="number" name="counter" placeholder="ustaw counter" > </form></a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
@@ -85,7 +86,7 @@
 
         @yield('content')
 
-    
+
             <br><br>
             <footer id="mojfooter">
             <div class="footer-copyright text-center">© 2018 Copyright:

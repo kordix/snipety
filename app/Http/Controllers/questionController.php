@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Setting;
 use App\zbignieww as fdas;
 use App\Channel;
 
@@ -25,6 +26,14 @@ class questionController extends Controller
         $question = Question::find($id);
         // dd($question);
         return view('index', compact('question'));
+    }
+
+    public function delete(Question $question)
+    {
+        $counternum = Setting::find(1)->counternum;
+        $next = Question::where('counter', '<', $counternum)->where('id', '>', $question->id) ->min('id');
+        $question->delete();
+        return redirect()->route('show', $next);
     }
 
     public function create()
@@ -54,13 +63,20 @@ class questionController extends Controller
 
     public function updatecounter(Request $request, $id)
     {
-        $zbigniew=Question::find($id);
-
         Question::find($id)->update([
             'counter'=>request('updatecounter')
         ]);
         return(back());
     }
+
+    public function updatecounterset(Request $request, $id)
+    {
+        Setting::find(1)->update([
+            'counternum'=>request('counter')
+        ]);
+        return(back());
+    }
+
 
     public function update(Request $request, $id)
     {

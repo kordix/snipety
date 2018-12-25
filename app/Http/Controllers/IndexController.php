@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Setting;
+
 use App\zbignieww as fdas;
 use App\Channel;
 
@@ -14,13 +16,14 @@ class IndexController extends Controller
         $id;
         $question = Question::find($id);
         $channel = $question->channel;
+        $counternum = Setting::find(1)->counternum;
         // dd($channel);
-        $next = Question::where('counter', '<', 10)->where('channel', '=', $channel)->where('id', '>', $id) ->min('id');
+        //->where('channel', '=', $channel)
+        $next = Question::where('counter', '<', $counternum)->where('id', '>', $id) ->min('id');
+        $prev = Question::where('counter', '<', $counternum)->where('id', '<', $id) ->max('id');
 
-        // dd($question);
-        // $next = Question::where('id', '>', $id)->where('counter', '<', 0)->min('id');
 
-        return view('index', compact('question', 'next'));
+        return view('index', compact('question', 'next', 'prev'));
     }
 
     public function start()
