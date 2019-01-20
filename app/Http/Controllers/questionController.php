@@ -57,7 +57,7 @@ class questionController extends Controller
             'answer' => request('answer'),
             'channel' => request('channel')
         ]);
-
+        session()->flash('message', 'dodano quizet');
         return back();
     }
 
