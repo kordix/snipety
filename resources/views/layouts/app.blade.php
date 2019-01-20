@@ -84,7 +84,11 @@
                 </div>
             </div>
         </nav>
-
+        @if($message = Session::get('message'))
+            <div class="alert alert-success alert-block">
+                {{$message}}
+            </div>
+        @endif
         @yield('content')
 
 
