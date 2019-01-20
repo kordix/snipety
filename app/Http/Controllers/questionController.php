@@ -85,6 +85,7 @@ class questionController extends Controller
             'question'=>request('question'),
             'channel'=>request('channel')
         ]);
+        session()->flash('message', 'zedytowano');
         return(back());
     }
 
